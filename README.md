@@ -37,23 +37,14 @@ Each stage is implemented as a modular component with explicit inputs and output
 These files define the EVTL pipeline and the components you will update for your project.
 
 - **src/nlp/pipeline_api_json.py** - Main pipeline orchestrator (no changes required)
-- **src/nlp/config_case.py** - Configuration for API access and paths (<mark>**copy and edit**</mark> for your project)
+- **src/nlp/config_dsmorgan.py** - Configuration for API access and paths (<mark>**copy and edit**</mark> for your project)
 - **src/nlp/stage01_extract.py** - Extract stage: retrieves data from the API (no changes required)
-- **src/nlp/stage02_validate_case.py** - Validate stage: inspects and verifies JSON structure (<mark>**copy and edit**</mark>)
-- **src/nlp/stage03_transform_case.py** - Transform stage: converts JSON into structured data (<mark>**copy and edit**</mark>)
+- **src/nlp/stage02_validate_dsmorgan.py** - Validate stage: inspects and verifies JSON structure (<mark>**copy and edit**</mark>)
+- **src/nlp/stage03_transform_dsmorgan.py** - Transform stage: converts JSON into structured data (<mark>**copy and edit**</mark>)
 - **src/nlp/stage04_load.py** - Load stage: writes output to persistent storage (no changes required)
 - **pyproject.toml** - Project metadata and dependencies (<mark>**update**</mark> authorship, links, and dependencies)
 - **zensical.toml** - Documentation configuration (<mark>**update**</mark> authorship and links)
 
-## First: Follow These Instructions
-
-Follow the [step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/) to complete:
-
-1. Phase 1. **Start & Run**
-2. Phase 2. **Change Authorship**
-3. Phase 3. **Read & Understand**
-
-## Success
 
 After running the script successfully, you will see:
 
@@ -66,8 +57,8 @@ Pipeline executed successfully!
 The following artifacts will be created:
 
 - project.log - confirming successful run
-- data/raw/case_raw.json - dump of the fetched JSON
-- data/processed/case_processed.csv - final loaded result
+- data/raw/dsmorgan_raw.json - dump of the fetched JSON
+- data/processed/dsmorgan_processed.csv - final loaded result
 
 ## Command Reference
 
@@ -144,7 +135,7 @@ PROCESSED_PATH = data\processed
 STAGE 01: EXTRACT starting...
 ========================
 SOURCE PATH = https://jsonplaceholder.typicode.com/posts
-SINK PATH = data\raw\case_raw.json
+SINK PATH = data\raw\dsmorgan_raw.json
 ========================
 STAGE 02: VALIDATE starting...
 ========================
@@ -169,7 +160,7 @@ Sink: Polars DataFrame created
 ========================
 STAGE 04: LOAD starting...
 ========================
-SINK PATH = data\processed\case_processed.csv
+SINK PATH = data\processed\dsmorgan_processed.csv
 ========================
 Pipeline executed successfully!
 ========================
