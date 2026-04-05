@@ -39,7 +39,7 @@ import logging
 
 from datafun_toolkit.logger import get_logger, log_header, log_path
 
-from nlp.config_case import (
+from nlp.new_application.config_dsmorgan import (
     API_URL,
     DATA_PATH,
     HTTP_REQUEST_HEADERS,
@@ -49,10 +49,10 @@ from nlp.config_case import (
     RAW_PATH,
     ROOT_PATH,
 )
-from nlp.stage01_extract import run_extract
-from nlp.stage02_validate_case import run_validate
-from nlp.stage03_transform_case import run_transform
-from nlp.stage04_load import run_load
+from nlp.new_application.stage01_extract_dsmorgan import run_extract
+from nlp.new_application.stage02_validate_dsmorgan import run_validate
+from nlp.new_application.stage03_transform_dsmorgan import run_transform
+from nlp.new_application.stage04_load_dsmorgan import run_load
 
 # ============================================================
 # Section 2. Configure Logging

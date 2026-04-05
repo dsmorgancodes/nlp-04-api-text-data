@@ -45,7 +45,7 @@ from typing import Any
 def run_validate(
     json_data: Any,
     LOG: logging.Logger,
-) -> list[dict]:
+) -> list[dict[str, Any]]:
     """Inspect and validate JSON structure.
 
     Args:
@@ -91,6 +91,27 @@ def run_validate(
 
     if not all(isinstance(record, dict) for record in json_data):
         raise ValueError("Expected each record to be a dictionary.")
+
+    required_keys = {"id", "name", "username", "email", "address", "company"}
+    first_record: dict[str, Any] = json_data[0]
+    missing_keys = required_keys.difference(first_record.keys())
+    if missing_keys:
+        raise ValueError(
+            f"Missing required keys in first record: {sorted(missing_keys)}"
+        )
+
+    LOG.info(f"Address keys in first record: {list(first_record['address'].keys())}")
+    LOG.info(f"Company keys in first record: {list(first_record['company'].keys())}")
+
+    for idx, record in enumerate(json_data):
+        if not required_keys.issubset(record.keys()):
+            raise ValueError(
+                f"Record index {idx} is missing one or more required keys."
+            )
+        if not isinstance(record["address"], dict):
+            raise ValueError(f"Record index {idx} has non-dict address field.")
+        if not isinstance(record["company"], dict):
+            raise ValueError(f"Record index {idx} has non-dict company field.")
 
     LOG.info("Validation passed.")
     LOG.info("Sink: validated JSON object")

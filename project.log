@@ -247,3 +247,151 @@ shape: (5, 7)
 2026-04-05 17:38:25 | INFO | CI | ========================
 2026-04-05 17:38:25 | INFO | CI | Pipeline executed successfully!
 2026-04-05 17:38:25 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | === RUN START ===
+2026-04-05 17:55:53 | INFO | CI | project=MODULE 4: EVTL PIPELINE
+2026-04-05 17:55:53 | INFO | CI | repo_dir=nlp-04-api-text-data
+2026-04-05 17:55:53 | INFO | CI | python=3.14.3
+2026-04-05 17:55:53 | INFO | CI | os=Darwin 25.3.0
+2026-04-05 17:55:53 | INFO | CI | shell=zsh
+2026-04-05 17:55:53 | INFO | CI | cwd=.
+2026-04-05 17:55:53 | INFO | CI | github_actions=False
+2026-04-05 17:55:53 | INFO | CI | START PIPELINE
+2026-04-05 17:55:53 | INFO | CI | ROOT_PATH = .
+2026-04-05 17:55:53 | INFO | CI | DATA_PATH = data/new_application
+2026-04-05 17:55:53 | INFO | CI | RAW_PATH = data/new_application/raw
+2026-04-05 17:55:53 | INFO | CI | PROCESSED_PATH = data/new_application/processed
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | SOURCE PATH = https://jsonplaceholder.typicode.com/users
+2026-04-05 17:55:53 | INFO | CI | SINK PATH = data/new_application/raw/users_raw.json
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | JSON STRUCTURE INSPECTION:
+2026-04-05 17:55:53 | INFO | CI | Top-level type: list
+2026-04-05 17:55:53 | INFO | CI | Keys in first record: ['id', 'name', 'username', 'email', 'address', 'phone', 'website', 'company']
+2026-04-05 17:55:53 | INFO | CI | Field types:
+2026-04-05 17:55:53 | INFO | CI | id: int
+2026-04-05 17:55:53 | INFO | CI | name: str
+2026-04-05 17:55:53 | INFO | CI | username: str
+2026-04-05 17:55:53 | INFO | CI | email: str
+2026-04-05 17:55:53 | INFO | CI | address: dict
+2026-04-05 17:55:53 | INFO | CI | phone: str
+2026-04-05 17:55:53 | INFO | CI | website: str
+2026-04-05 17:55:53 | INFO | CI | company: dict
+2026-04-05 17:55:53 | INFO | CI | Address keys in first record: ['street', 'suite', 'city', 'zipcode', 'geo']
+2026-04-05 17:55:53 | INFO | CI | Company keys in first record: ['name', 'catchPhrase', 'bs']
+2026-04-05 17:55:53 | INFO | CI | Validation passed.
+2026-04-05 17:55:53 | INFO | CI | Sink: validated JSON object
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | Transformation complete.
+2026-04-05 17:55:53 | INFO | CI | DataFrame preview:
+shape: (5, 9)
+┌─────────┬─────────┬─────────┬────────┬───┬────────┬────────┬────────┬────────┐
+│ user_id ┆ name    ┆ usernam ┆ email  ┆ … ┆ compan ┆ name_l ┆ userna ┆ email_ │
+│ ---     ┆ ---     ┆ e       ┆ ---    ┆   ┆ y_name ┆ ength  ┆ me_len ┆ domain │
+│ i64     ┆ str     ┆ ---     ┆ str    ┆   ┆ ---    ┆ ---    ┆ gth    ┆ ---    │
+│         ┆         ┆ str     ┆        ┆   ┆ str    ┆ u32    ┆ ---    ┆ str    │
+│         ┆         ┆         ┆        ┆   ┆        ┆        ┆ u32    ┆        │
+╞═════════╪═════════╪═════════╪════════╪═══╪════════╪════════╪════════╪════════╡
+│ 1       ┆ Leanne  ┆ Bret    ┆ Sincer ┆ … ┆ Romagu ┆ 13     ┆ 4      ┆ april. │
+│         ┆ Graham  ┆         ┆ e@apri ┆   ┆ era-Cr ┆        ┆        ┆ biz    │
+│         ┆         ┆         ┆ l.biz  ┆   ┆ ona    ┆        ┆        ┆        │
+│ 2       ┆ Ervin   ┆ Antonet ┆ Shanna ┆ … ┆ Deckow ┆ 12     ┆ 9      ┆ meliss │
+│         ┆ Howell  ┆ te      ┆ @melis ┆   ┆ -Crist ┆        ┆        ┆ a.tv   │
+│         ┆         ┆         ┆ sa.tv  ┆   ┆        ┆        ┆        ┆        │
+│ 3       ┆ Clement ┆ Samanth ┆ Nathan ┆ … ┆ Romagu ┆ 16     ┆ 8      ┆ yeseni │
+│         ┆ ine     ┆ a       ┆ @yesen ┆   ┆ era-Ja ┆        ┆        ┆ a.net  │
+│         ┆ Bauch   ┆         ┆ ia.net ┆   ┆ cobson ┆        ┆        ┆        │
+│ 4       ┆ Patrici ┆ Kariann ┆ Julian ┆ … ┆ Robel- ┆ 16     ┆ 8      ┆ kory.o │
+│         ┆ a       ┆ e       ┆ ne.OCo ┆   ┆ Corker ┆        ┆        ┆ rg     │
+│         ┆ Lebsack ┆         ┆ nner@k ┆   ┆ y      ┆        ┆        ┆        │
+│         ┆         ┆         ┆ ory.or ┆   ┆        ┆        ┆        ┆        │
+│         ┆         ┆         ┆ g      ┆   ┆        ┆        ┆        ┆        │
+│ 5       ┆ Chelsey ┆ Kamren  ┆ Lucio_ ┆ … ┆ Keeble ┆ 16     ┆ 6      ┆ annie. │
+│         ┆ Dietric ┆         ┆ Hettin ┆   ┆ r LLC  ┆        ┆        ┆ ca     │
+│         ┆ h       ┆         ┆ ger@an ┆   ┆        ┆        ┆        ┆        │
+│         ┆         ┆         ┆ nie.ca ┆   ┆        ┆        ┆        ┆        │
+└─────────┴─────────┴─────────┴────────┴───┴────────┴────────┴────────┴────────┘
+2026-04-05 17:55:53 | INFO | CI | Sink: Polars DataFrame created
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | SINK PATH = data/new_application/processed/users_processed.csv
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 17:55:53 | INFO | CI | Pipeline executed successfully!
+2026-04-05 17:55:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | === RUN START ===
+2026-04-05 18:08:53 | INFO | CI | project=MODULE 4: EVTL PIPELINE
+2026-04-05 18:08:53 | INFO | CI | repo_dir=nlp-04-api-text-data
+2026-04-05 18:08:53 | INFO | CI | python=3.14.3
+2026-04-05 18:08:53 | INFO | CI | os=Darwin 25.3.0
+2026-04-05 18:08:53 | INFO | CI | shell=zsh
+2026-04-05 18:08:53 | INFO | CI | cwd=.
+2026-04-05 18:08:53 | INFO | CI | github_actions=False
+2026-04-05 18:08:53 | INFO | CI | START PIPELINE
+2026-04-05 18:08:53 | INFO | CI | ROOT_PATH = .
+2026-04-05 18:08:53 | INFO | CI | DATA_PATH = data/new_application
+2026-04-05 18:08:53 | INFO | CI | RAW_PATH = data/new_application/raw
+2026-04-05 18:08:53 | INFO | CI | PROCESSED_PATH = data/new_application/processed
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | SOURCE PATH = https://jsonplaceholder.typicode.com/users
+2026-04-05 18:08:53 | INFO | CI | SINK PATH = data/new_application/raw/users_raw.json
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | JSON STRUCTURE INSPECTION:
+2026-04-05 18:08:53 | INFO | CI | Top-level type: list
+2026-04-05 18:08:53 | INFO | CI | Keys in first record: ['id', 'name', 'username', 'email', 'address', 'phone', 'website', 'company']
+2026-04-05 18:08:53 | INFO | CI | Field types:
+2026-04-05 18:08:53 | INFO | CI | id: int
+2026-04-05 18:08:53 | INFO | CI | name: str
+2026-04-05 18:08:53 | INFO | CI | username: str
+2026-04-05 18:08:53 | INFO | CI | email: str
+2026-04-05 18:08:53 | INFO | CI | address: dict
+2026-04-05 18:08:53 | INFO | CI | phone: str
+2026-04-05 18:08:53 | INFO | CI | website: str
+2026-04-05 18:08:53 | INFO | CI | company: dict
+2026-04-05 18:08:53 | INFO | CI | Address keys in first record: ['street', 'suite', 'city', 'zipcode', 'geo']
+2026-04-05 18:08:53 | INFO | CI | Company keys in first record: ['name', 'catchPhrase', 'bs']
+2026-04-05 18:08:53 | INFO | CI | Validation passed.
+2026-04-05 18:08:53 | INFO | CI | Sink: validated JSON object
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | Transformation complete.
+2026-04-05 18:08:53 | INFO | CI | DataFrame preview:
+shape: (5, 9)
+┌─────────┬───────────┬───────────┬───────────┬───┬──────────┬──────────┬──────────┬──────────┐
+│ user_id ┆ name      ┆ username  ┆ email     ┆ … ┆ company_ ┆ name_len ┆ username ┆ email_do │
+│ ---     ┆ ---       ┆ ---       ┆ ---       ┆   ┆ name     ┆ gth      ┆ _length  ┆ main     │
+│ i64     ┆ str       ┆ str       ┆ str       ┆   ┆ ---      ┆ ---      ┆ ---      ┆ ---      │
+│         ┆           ┆           ┆           ┆   ┆ str      ┆ u32      ┆ u32      ┆ str      │
+╞═════════╪═══════════╪═══════════╪═══════════╪═══╪══════════╪══════════╪══════════╪══════════╡
+│ 1       ┆ Leanne    ┆ Bret      ┆ Sincere@a ┆ … ┆ Romaguer ┆ 13       ┆ 4        ┆ april.bi │
+│         ┆ Graham    ┆           ┆ pril.biz  ┆   ┆ a-Crona  ┆          ┆          ┆ z        │
+│ 2       ┆ Ervin     ┆ Antonette ┆ Shanna@me ┆ … ┆ Deckow-C ┆ 12       ┆ 9        ┆ melissa. │
+│         ┆ Howell    ┆           ┆ lissa.tv  ┆   ┆ rist     ┆          ┆          ┆ tv       │
+│ 3       ┆ Clementin ┆ Samantha  ┆ Nathan@ye ┆ … ┆ Romaguer ┆ 16       ┆ 8        ┆ yesenia. │
+│         ┆ e Bauch   ┆           ┆ senia.net ┆   ┆ a-Jacobs ┆          ┆          ┆ net      │
+│         ┆           ┆           ┆           ┆   ┆ on       ┆          ┆          ┆          │
+│ 4       ┆ Patricia  ┆ Karianne  ┆ Julianne. ┆ … ┆ Robel-Co ┆ 16       ┆ 8        ┆ kory.org │
+│         ┆ Lebsack   ┆           ┆ OConner@k ┆   ┆ rkery    ┆          ┆          ┆          │
+│         ┆           ┆           ┆ ory.org   ┆   ┆          ┆          ┆          ┆          │
+│ 5       ┆ Chelsey   ┆ Kamren    ┆ Lucio_Het ┆ … ┆ Keebler  ┆ 16       ┆ 6        ┆ annie.ca │
+│         ┆ Dietrich  ┆           ┆ tinger@an ┆   ┆ LLC      ┆          ┆          ┆          │
+│         ┆           ┆           ┆ nie.ca    ┆   ┆          ┆          ┆          ┆          │
+└─────────┴───────────┴───────────┴───────────┴───┴──────────┴──────────┴──────────┴──────────┘
+2026-04-05 18:08:53 | INFO | CI | Sink: Polars DataFrame created
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | SINK PATH = data/new_application/processed/users_processed.csv
+2026-04-05 18:08:53 | INFO | CI | ========================
+2026-04-05 18:08:53 | INFO | CI | Pipeline executed successfully!
+2026-04-05 18:08:53 | INFO | CI | ========================
